@@ -9,10 +9,20 @@ class TodoForm extends Component {
             completed: false
         }
     }
+
+    handleChange = e => {
+        this.setState({task: e.target.value});
+    }
+
     render () {
         return (
             <form>
-                <input placeholder="todo" />
+                <input 
+                    type="text"    
+                    placeholder="todo"
+                    value={this.state.task}
+                    onChange={this.handleChange}
+                />
                 <button>Submit</button>
             </form>
         )
