@@ -9,3 +9,5 @@ const TodoList = ({todos}) => {
         </ul>
     )
 }
+
+export default TodoList;
