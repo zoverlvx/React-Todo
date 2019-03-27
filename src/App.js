@@ -21,11 +21,18 @@ class App extends Component {
         };
     }
 
+    addTask = task => {
+        this.setState({
+            todos: [...this.state.todos, task]
+        });
+    }
+
     render() {
       return (
         <div>
             <Header text="Todo List: MVP"/>
             <TodoList 
+                addTask={this.addTask}
                 todos={this.state.todos} 
             />
         </div>
