@@ -5,9 +5,22 @@ class TodoForm extends Component {
         super();
         this.state = {
             task: "",
-            id: new Date(),
             completed: false
         }
+    }
+
+    handleSubmit = e => {
+        e.preventDefault();
+        this.props.addTask({
+            task: this.state.task,
+            id: new Date(),
+            completed: false
+        });
+
+        this.setState({
+            task: "",
+            completed: false
+        })
     }
 
     handleChange = e => {
@@ -16,7 +29,7 @@ class TodoForm extends Component {
 
     render () {
         return (
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <input 
                     type="text"    
                     placeholder="todo"
