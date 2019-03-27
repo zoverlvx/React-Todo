@@ -17,8 +17,7 @@ class App extends Component {
                     id: 1528817084358,
                     completed: false
                 }
-            ],
-            todo: ""
+            ]
         };
     }
     render() {
