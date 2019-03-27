@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {Component} from "react";
+import Header from "./components/TodoComponents/Header";
 
-class App extends React.Component {
+class App extends Component {
     constructor() {
         super();
         this.state = {
@@ -22,7 +23,7 @@ class App extends React.Component {
     render() {
       return (
         <div>
-          <h2>Welcome to your Todo App!</h2>
+            <Header text="Todo List: MVP"/>
         </div>
       );
     }
