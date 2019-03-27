@@ -2,12 +2,16 @@
 // feel free to change this component.js into TodoList.js
 import React from "react";
 import Todo from "./Todo";
+import TodoForm from "./TodoForm";
 
 const TodoList = ({todos}) => {
     return (
-        <ul>
-            {todos.map(({task}) => <Todo item={task} />)}
-        </ul>
+        <div>
+            <ul>
+                {todos.map(({task}) => <Todo item={task} />)}
+            </ul>
+            <TodoForm />
+        </div>
     )
 }
 
