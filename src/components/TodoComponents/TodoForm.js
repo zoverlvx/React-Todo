@@ -1,11 +1,22 @@
-import React from "react";
+import React, {Component} from "react";
 
-const TodoForm = () => {
-    return (
-        <form>
-            <input placeholder="todo" />
-        </form>
-    )
+class TodoForm extends Component {
+    constructor () {
+        super();
+        this.state = {
+            task: "",
+            id: new Date(),
+            completed: false
+        }
+    }
+    render () {
+        return (
+            <form>
+                <input placeholder="todo" />
+            </form>
+        )
+    }
 }
+    
 
 export default TodoForm;
