@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Header from "./components/TodoComponents/Header";
+import TodoList from "./components/TodoComponents/TodoList";
 
 class App extends Component {
     constructor() {
@@ -24,6 +25,7 @@ class App extends Component {
       return (
         <div>
             <Header text="Todo List: MVP"/>
+            <TodoList todos={this.state.todos} />
         </div>
       );
     }
