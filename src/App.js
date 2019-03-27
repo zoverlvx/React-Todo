@@ -20,11 +20,14 @@ class App extends Component {
             ]
         };
     }
+
     render() {
       return (
         <div>
             <Header text="Todo List: MVP"/>
-            <TodoList todos={this.state.todos} />
+            <TodoList 
+                todos={this.state.todos} 
+            />
         </div>
       );
     }
