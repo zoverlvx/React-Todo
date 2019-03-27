@@ -4,13 +4,13 @@ import React from "react";
 import Todo from "./Todo";
 import TodoForm from "./TodoForm";
 
-const TodoList = ({todos}) => {
+const TodoList = ({todos, addTask}) => {
     return (
         <div>
             <ul>
                 {todos.map(({task}) => <Todo item={task} />)}
             </ul>
-            <TodoForm />
+            <TodoForm addTask={addTask}/>
         </div>
     )
 }
