@@ -37,6 +37,7 @@ class TodoForm extends Component {
                     onChange={this.handleChange}
                 />
                 <button>Submit</button>
+                <button>Clear Completed</button>
             </form>
         )
     }
