@@ -13,6 +13,7 @@ class TodoForm extends Component {
         return (
             <form>
                 <input placeholder="todo" />
+                <button>Submit</button>
             </form>
         )
     }
