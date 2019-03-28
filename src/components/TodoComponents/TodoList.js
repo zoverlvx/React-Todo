@@ -2,15 +2,13 @@
 // feel free to change this component.js into TodoList.js
 import React from "react";
 import Todo from "./Todo";
-import TodoForm from "./TodoForm";
 
-const TodoList = ({todos, addTask}) => {
+const TodoList = ({todos, toggleTask}) => {
     return (
         <div>
             <ul>
-                {todos.map(({task}) => <Todo item={task} />)}
+                {todos.map(obj => <Todo key={obj.id} item={obj} toggleTask={toggleTask} />)}
             </ul>
-            <TodoForm addTask={addTask}/>
         </div>
     )
 }

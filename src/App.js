@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Header from "./components/TodoComponents/Header";
+import TodoForm from "./components/TodoComponents/TodoForm";
 import TodoList from "./components/TodoComponents/TodoList";
 
 class App extends Component {
@@ -9,12 +10,7 @@ class App extends Component {
             todos: [  
                 {
                     task: "Organize Garage",
-                    id: 1528817077286,
-                    completed: false
-                },
-                {
-                    task: "Bake Cookies",
-                    id: 1528817084358,
+                    id: (new Date()).getTime(),
                     completed: false
                 }
             ]
@@ -27,14 +23,40 @@ class App extends Component {
         });
     }
 
+    toggleTask = chosenId => {
+	this.setState({
+	    todos: this.state.todos.map(item => {
+		if (item.id === chosenId) {
+		    return { 
+			...item,
+			completed: !item.completed
+		    };
+		}
+		return item; 
+	    })
+	})
+    }
+
+    clearCompleted = e => {
+	e.preventDefault();
+	function filterForIncompletedTasks(item) {
+		return !item.completed;
+	}
+	const incompleteTasks = this.state.todos.filter(filterForIncompletedTasks)
+	this.setState({todos: incompleteTasks})
+    }
+
     render() {
       return (
         <div>
             <Header text="Todo List: MVP"/>
             <TodoList 
+		toggleTask={this.toggleTask}
                 addTask={this.addTask}
                 todos={this.state.todos} 
             />
+	    <TodoForm addTask={this.addTask} />
+            <button onClick={this.clearCompleted}>Clear Completed</button>
         </div>
       );
     }

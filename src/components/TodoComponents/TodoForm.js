@@ -5,6 +5,7 @@ class TodoForm extends Component {
         super();
         this.state = {
             task: "",
+	    id: (new Date()).getTime(), 
             completed: false
         }
     }
@@ -13,13 +14,12 @@ class TodoForm extends Component {
         e.preventDefault();
         this.props.addTask({
             task: this.state.task,
-            id: new Date(),
+            id: (new Date()).getTime(),
             completed: false
         });
 
         this.setState({
-            task: "",
-            completed: false
+            task: ""
         })
     }
 
@@ -37,7 +37,6 @@ class TodoForm extends Component {
                     onChange={this.handleChange}
                 />
                 <button>Submit</button>
-                <button>Clear Completed</button>
             </form>
         )
     }
