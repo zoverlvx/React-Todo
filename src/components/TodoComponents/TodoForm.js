@@ -1,46 +1,37 @@
-import React, {Component} from "react";
+import React, {useState} from "react";
 
-class TodoForm extends Component {
-    constructor () {
-        super();
-        this.state = {
-            task: "",
-	    id: (new Date()).getTime(), 
-            completed: false
-        }
+function TodoForm({addTask}) {
+	const [state, setState] = useState({
+		task: "",
+		id: (new Date()).getTime(),
+		completed: false
+	});
+
+	function handleSubmit(e) {
+		e.preventDefault();
+		addTask({
+			task: state.task,
+			id: (new Date()).getTime(),
+			completed: false
+		});
+		setState({task: ""});
+	}
+
+	function handleChange(e) {
+        setState({task: e.target.value});
     }
 
-    handleSubmit = e => {
-        e.preventDefault();
-        this.props.addTask({
-            task: this.state.task,
-            id: (new Date()).getTime(),
-            completed: false
-        });
-
-        this.setState({
-            task: ""
-        })
-    }
-
-    handleChange = e => {
-        this.setState({task: e.target.value});
-    }
-
-    render () {
-        return (
-            <form onSubmit={this.handleSubmit}>
+	return (
+            <form onSubmit={handleSubmit}>
                 <input 
                     type="text"    
                     placeholder="todo"
-                    value={this.state.task}
-                    onChange={this.handleChange}
+                    value={state.task}
+                    onChange={handleChange}
                 />
                 <button>Submit</button>
             </form>
         )
-    }
 }
-    
 
 export default TodoForm;
